@@ -1,0 +1,39 @@
+
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+                <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+                <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+            </button>
+            <span></span>
+            VW Online Shop Adminstration
+            <span></span>
+        </mat-toolbar>
+    </mat-sidenav-content>
+    <mat-sidenav #sidenav="matSidenav" >
+        <button class="menu-button" mat-button routerLink="/admin/main/products" routerLinkActive="mat-accent"
+            (click)="sidenav.close()">
+            <!-- <mat-icon>VW Online Shop</mat-icon> -->
+            <span>Products</span>
+        </button>
+
+        <button class="menu-button" mat-button routerLink="/admin/main/orders" routerLinkActive="mat-accent"
+            (click)="sidenav.close()">
+            <!-- <mat-icon>Local Shop</mat-icon> -->
+            <span>Orders</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button logout" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
